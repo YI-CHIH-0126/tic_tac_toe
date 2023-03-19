@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 using namespace std;
 int judge(string[3][3]);
 
@@ -38,6 +39,7 @@ int main(){
         cout<<"\n---------";
 
         if(!judge(arr)){
+            system("pause");
             return 0;
         }
 
@@ -98,7 +100,7 @@ int judge(string board[3][3]){
     }
     //left-down to right-up
     if(board[2][0]==board[1][1]&&board[2][0]==board[0][2]){
-        cout<<board[2][0]<<" win";
+        cout<<board[2][0]<<" win\n";
         return 0;
     }
     return 1;
