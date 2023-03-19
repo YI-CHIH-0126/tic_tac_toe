@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
+int judge(string[3][3]);
 
 int main(){
     //init
@@ -51,7 +52,15 @@ int main(){
 
         
         
-    }while(1);
+    }while(judge(arr));
 
     return 0;
+}
+
+int judge(string board[3][3]){
+    if(board[0][0]==board[0][1]&&board[0][0]==board[0][2]){
+        cout<<board[0][0]<<" win";
+        return 0;
+    }
+    return 1;
 }
