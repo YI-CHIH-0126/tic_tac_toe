@@ -22,7 +22,7 @@ int main(){
     cout<<"\n---------";
 
     
-    do{
+    while(judge(arr)){
         //get input
         cout<<endl<<"enter the number to fill O:";
         cin>>temp;
@@ -37,6 +37,10 @@ int main(){
         }
         cout<<"\n---------";
 
+        if(!judge(arr)){
+            return 0;
+        }
+
         cout<<endl<<"enter the number to fill X:";
         cin>>temp;
         arr[temp/3][temp%3-1]="X";
@@ -49,17 +53,52 @@ int main(){
             }
         }
         cout<<"\n---------";
-
+    }
         
-        
-    }while(judge(arr));
+    
 
     return 0;
 }
 
 int judge(string board[3][3]){
+    //first row
     if(board[0][0]==board[0][1]&&board[0][0]==board[0][2]){
         cout<<board[0][0]<<" win";
+        return 0;
+    }
+    //second row
+    if(board[1][0]==board[1][1]&&board[1][0]==board[1][2]){
+        cout<<board[1][0]<<" win";
+        return 0;
+    }
+    //third row
+    if(board[2][0]==board[2][1]&&board[2][0]==board[2][2]){
+        cout<<board[2][0]<<" win";
+        return 0;
+    }
+    //first column
+    if(board[0][0]==board[1][0]&&board[0][0]==board[2][0]){
+        cout<<board[0][0]<<" win";
+        return 0;
+    }
+    //second column
+    if(board[0][1]==board[1][1]&&board[0][1]==board[2][1]){
+        cout<<board[0][1]<<" win";
+        return 0;
+    }
+    //third column
+    if(board[0][2]==board[1][2]&&board[0][2]==board[2][2]){
+        cout<<board[0][2]<<" win";
+        return 0;
+    }
+    //left-up to right-down
+    if(board[0][0]==board[1][1]&&board[0][0]==board[2][2]){
+        cout<<board[0][0]<<" win";
+        return 0;
+    }
+    //left-down to right-up
+    if(board[2][0]==board[1][1]&&board[2][0]==board[0][2]){
+        cout<<board[2][0]<<" win";
         return 0;
     }
     return 1;
