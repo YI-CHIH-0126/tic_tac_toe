@@ -2,11 +2,12 @@
 #include <cstring>
 #include <cstdlib>
 using namespace std;
-int judge(string[3][3]);
+int judge(string[3][3],int);
 
 int main(){
     //init
     int temp;
+    int tie =9;
     string arr[3][3]={
         {"1","2","3"},
         {"4","5","6"},
@@ -23,10 +24,11 @@ int main(){
     cout<<"\n---------";
 
     
-    while(judge(arr)){
+    while(judge(arr,tie)){
         //get input
         cout<<endl<<"enter the number to fill O:";
         cin>>temp;
+        tie--;
         arr[temp/3][temp%3-1]="O";
         
         cout<<"---------";
@@ -38,13 +40,14 @@ int main(){
         }
         cout<<"\n---------";
 
-        if(!judge(arr)){
+        if(!judge(arr,tie)){
             system("pause");
             return 0;
         }
 
         cout<<endl<<"enter the number to fill X:";
         cin>>temp;
+        tie--;
         arr[temp/3][temp%3-1]="X";
 
         cout<<"---------";
@@ -62,7 +65,7 @@ int main(){
     return 0;
 }
 
-int judge(string board[3][3]){
+int judge(string board[3][3],int tie){
     //first row
     if(board[0][0]==board[0][1]&&board[0][0]==board[0][2]){
         cout<<board[0][0]<<" win\n";
@@ -101,6 +104,11 @@ int judge(string board[3][3]){
     //left-down to right-up
     if(board[2][0]==board[1][1]&&board[2][0]==board[0][2]){
         cout<<board[2][0]<<" win\n";
+        return 0;
+    }
+    //tie
+    if(tie==0){
+        cout<<"tie\n";
         return 0;
     }
     return 1;
