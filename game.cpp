@@ -31,7 +31,7 @@ int main(){
             cin>>temp;
             tie--;
             arr[temp/3][temp%3-1]="O";
-        
+            system("cls");
             cout<<"---------";
             for(int i=0;i<3;i++){
                 cout<<endl;
@@ -46,7 +46,7 @@ int main(){
             cin>>temp;
             tie--;
             arr[temp/3][temp%3-1]="X";
-        
+            system("cls");
             cout<<"---------";
             for(int i=0;i<3;i++){
                 cout<<endl;
