@@ -8,6 +8,7 @@ int main(){
     //init
     int temp;
     int tie =9;
+    string state="O";
     string arr[3][3]={
         {"1","2","3"},
         {"4","5","6"},
@@ -25,42 +26,40 @@ int main(){
 
     
     while(judge(arr,tie)){
-        //get input
-        cout<<endl<<"enter the number to fill O:";
-        cin>>temp;
-        tie--;
-        arr[temp/3][temp%3-1]="O";
+        if(state=="O"){
+            cout<<endl<<"enter the number to fill O:";
+            cin>>temp;
+            tie--;
+            arr[temp/3][temp%3-1]="O";
         
-        cout<<"---------";
-        for(int i=0;i<3;i++){
-            cout<<endl;
-            for(int j=0;j<3;j++){
-                cout<<arr[i][j]<<"   ";
+            cout<<"---------";
+            for(int i=0;i<3;i++){
+                cout<<endl;
+                for(int j=0;j<3;j++){
+                    cout<<arr[i][j]<<"   ";
+                }
             }
-        }
-        cout<<"\n---------";
-
-        if(!judge(arr,tie)){
-            system("pause");
-            return 0;
-        }
-
-        cout<<endl<<"enter the number to fill X:";
-        cin>>temp;
-        tie--;
-        arr[temp/3][temp%3-1]="X";
-
-        cout<<"---------";
-        for(int i=0;i<3;i++){
-            cout<<endl;
-            for(int j=0;j<3;j++){
-                cout<<arr[i][j]<<"   ";
+            cout<<"\n---------";
+            state="X";
+        }else{
+            cout<<endl<<"enter the number to fill X:";
+            cin>>temp;
+            tie--;
+            arr[temp/3][temp%3-1]="X";
+        
+            cout<<"---------";
+            for(int i=0;i<3;i++){
+                cout<<endl;
+                for(int j=0;j<3;j++){
+                    cout<<arr[i][j]<<"   ";
+                }
             }
+            cout<<"\n---------";
+            state="O";
         }
-        cout<<"\n---------";
+        
+        
     }
-        
-    
     system("pause");
     return 0;
 }
